@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>By Andri Store — Bot Script Repository</title>
+  <meta name="description" content="Temukan, upload, dan download script bot WhatsApp terbaik. Repository script bot WA terlengkap.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='[w3.org](http://www.w3.org/2000/svg)' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+</head>
+<body>
+
+<!-- Loading -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="spinner"></div>
+</div>
+
+<!-- Toast Container -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/" class="navbar-brand">
+    <div class="logo-icon">🚀</div>
+    ALL SC BY ANDRI STORE
+  </a>
+
+  <ul class="navbar-nav">
+    <li><a href="/" class="nav-link active">Beranda</a></li>
+    <li><a href="/#scripts" class="nav-link">Scripts</a></li>
+    <li><a href="/upload" class="nav-link">Upload</a></li>
+  </ul>
+
+  <div class="nav-actions" id="navActions">
+    <a href="/login" class="btn btn-outline btn-sm">Login</a>
+    <a href="/register" class="btn btn-primary btn-sm">Daftar</a>
+  </div>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/" class="nav-link">Beranda</a>
+  <a href="/#scripts" class="nav-link">Scripts</a>
+  <a href="/upload" class="nav-link">Upload</a>
+  <div style="border-top:1px solid var(--border);margin:1rem 0;"></div>
+  <div id="mobileAuthLinks">
+    <a href="/login" class="nav-link">Login</a>
+    <a href="/register" class="nav-link">Daftar</a>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-badge">🚀 Repository Script Bot WA Terlengkap</div>
+    <h1>Temukan & Share<br><span>Script Bot WhatsApp</span><br>Terbaik</h1>
+    <p>Ribuan script bot WhatsApp siap pakai. Gratis untuk didownload,User mudah untuk diupload.</p>
+
+    <div class="search-container">
+      <input
+        type="text"
+        class="search-input"
+        id="heroSearch"
+        placeholder="Cari script bot WhatsApp..."
+        autocomplete="off"
+      >
+      <button class="search-btn" id="heroSearchBtn">🔍</button>
+    </div>
+
+    <div class="stats-bar" id="globalStats">
+      <div class="stat-item"><strong id="statTotal">—</strong> Scripts</div>
+      <div class="stat-item"><strong id="statDownloads">—</strong> Downloads</div>
+      <div class="stat-item"><strong id="statUsers">—</strong> Pengguna</div>
+    </div>
+  </div>
+</section>
+
+<!-- Filter Bar -->
+<div class="filter-bar" id="filterBar">
+  <span class="filter-chip active" data-category="all">Semua</span>
+  <span class="filter-chip" data-category="general">⚙General</span>
+  <span class="filter-chip" data-category="aibot">AI Bot</span>
+  <span class="filter-chip" data-category="game">Game</span>
+  <span class="filter-chip" data-category="utility"> Utility</span>
+  <span class="filter-chip" data-category="downloader">Downloader</span>
+  <span class="filter-chip" data-category="sticker">Sticker</span>
+  <span class="filter-chip" data-category="group">Group</span>
+
+  <select class="sort-select" id="sortSelect">
+    <option value="newest">Terbaru</option>
+    <option value="popular">Terpopuler</option>
+    <option value="views">Dilihat</option>
+    <option value="oldest">Terlama</option>
+  </select>
+</div>
+
+<!-- Scripts Section -->
+<div class="section" id="scripts">
+  <div class="section-header">
+    <h2 class="section-title">Script <span>WhatsApp Bot</span></h2>
+    <a href="/upload" class="btn btn-primary btn-sm">+ Upload Script</a>
+  </div>
+
+  <div class="script-grid" id="scriptGrid">
+    <!-- Skeleton loaders -->
+    ${Array(8).fill('<div class="script-card"><div class="card-image skeleton"></div><div class="card-body"><div class="skeleton" style="height:20px;margin-bottom:8px;border-radius:4px;"></div><div class="skeleton" style="height:14px;margin-bottom:6px;border-radius:4px;"></div><div class="skeleton" style="height:14px;width:70%;border-radius:4px;"></div></div></div>').join('')}
+  </div>
+
+  <div class="empty-state" id="emptyState" style="display:none;">
+    <div class="empty-icon">📭</div>
+    <h3>Belum ada script</h3>
+    <p>Jadilah yang pertama mengupload script bot WhatsApp!</p>
+    <a href="/upload" class="btn btn-primary">Upload Sekarang</a>
+  </div>
+
+  <div class="pagination" id="pagination"></div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-text">🚀 ALL SC BY ANDRI STORE</div>
+      <p>Repository script bot WhatsApp terlengkap dan terpercaya. Temukan, bagikan, dan download script bot WA berkualitas tinggi.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigasi</h4>
+      <ul>
+        <li><a href="/">Beranda</a></li>
+        <li><a href="/#scripts">Scripts</a></li>
+        <li><a href="/upload">Upload Script</a></li>
+        <li><a href="/login">Login</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kategori</h4>
+      <ul>
+        <li><a href="/?category=aibot">AI Bot</a></li>
+        <li><a href="/?category=game">Game Bot</a></li>
+        <li><a href="/?category=utility">Utility</a></li>
+        <li><a href="/?category=downloader">Downloader</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 - 2026 ALL SC BY ANDRI STORE — Dibuat dengan ❤ untuk komunitas WhatsApp Bot Indonesia</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

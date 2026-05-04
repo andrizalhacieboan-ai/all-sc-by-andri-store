@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload Script Andri</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="toast-container" id="toastContainer"></div>
+<div class="loading-overlay" id="loadingOverlay"><div class="spinner"></div></div>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="/" class="navbar-brand"><div class="logo-icon">🚀</div>ALL SC BY ANDRI STORE</a>
+  <ul class="navbar-nav">
+    <li><a href="/" class="nav-link">Beranda</a></li>
+    <li><a href="/#scripts" class="nav-link">Scripts</a></li>
+    <li><a href="/upload" class="nav-link active">Upload</a></li>
+  </ul>
+  <div class="nav-actions" id="navActions"></div>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="upload-wrapper">
+  <div class="upload-card">
+    <div class="upload-header">
+      <h2>⬆️ Upload Script Bot</h2>
+      <p>Bagikan script bot WhatsApp kamu ke komunitas</p>
+    </div>
+    <div class="upload-body">
+      <form id="uploadForm" novalidate>
+
+        <div class="form-group">
+          <label class="form-label">Nama Script *</label>
+          <input type="text" class="form-control" id="title" placeholder="Contoh: Bot AI WhatsApp dengan GPT-4" required maxlength="200">
+          <div class="form-error" id="titleError"></div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Deskripsi *</label>
+          <textarea class="form-control" id="description" rows="4" placeholder="Jelaskan fitur dan cara penggunaan script ini..." required style="resize:vertical;"></textarea>
+          <div class="form-error" id="descError"></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group">
+            <label class="form-label">Kategori</label>
+            <select class="form-control" id="category">
+              <option value="general">⚙General</option>
+              <option value="aibot">AI Bot</option>
+              <option value="game">Game</option>
+              <option value="utility">Utility</option>
+              <option value="downloader">Downloader</option>
+              <option value="sticker">Sticker</option>
+              <option value="group">Group Manager</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tags (pisah koma)</label>
+            <input type="text" class="form-control" id="tags" placeholder="baileys, openai, gpt">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">File Script *</label>
+          <div class="file-upload-area" id="fileDropArea">
+            <div class="upload-icon">📁</div>
+            <p><strong>Klik untuk memilih file</strong> atau klik di sini</p>
+            <p class="file-info">Mendukung: .js, .ts, .json, .zip, .txt | Max 5MB</p>
+            <input type="file" id="fileInput" style="display:none;" accept=".js,.ts,.json,.zip,.txt">
+          </div>
+          <div class="form-error" id="fileError"></div>
+          <pre class="code-preview" id="codePreview"></pre>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">URL Gambar Preview</label>
+          <input type="url" class="form-control" id="image" placeholder="[example.com](https://example.com/gambar.png)">
+        </div>
+
+        <div style="display:flex;gap:1rem;justify-content:flex-end;padding-top:0.5rem;">
+          <a href="/" class="btn btn-ghost">Batal</a>
+          <button type="submit" class="btn btn-primary" id="uploadBtn">
+            🚀 Upload Script
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/js/main.js"></script>
+<script src="/js/upload.js"></script>
+</body>
+</html>

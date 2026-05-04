@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel — By Andri Store</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<div class="toast-container" id="toastContainer"></div>
+
+<nav class="navbar">
+  <a href="/" class="navbar-brand"><div class="logo-icon">🚀</div>BY ANDRI STORE <span style="font-size:0.7rem;background:var(--accent);color:white;padding:2px 8px;border-radius:50px;margin-left:6px;">ADMIN</span></a>
+  <div class="nav-actions" id="navActions"></div>
+</nav>
+
+<div class="admin-layout">
+  <!-- Sidebar -->
+  <aside class="admin-sidebar">
+    <div class="sidebar-title">Menu Admin</div>
+    <button class="admin-nav-link active" onclick="showSection('dashboard')">📊 Dashboard</button>
+    <button class="admin-nav-link" onclick="showSection('scripts')">📦 Kelola Script</button>
+    <button class="admin-nav-link" onclick="showSection('users')">👥 Kelola User</button>
+    <button class="admin-nav-link" onclick="showSection('pending')">⏳ Script Pending</button>
+    <div style="margin-top:auto;padding-top:2rem;">
+      <a href="/" class="admin-nav-link">🏠 Kembali ke Beranda</a>
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+
+    <!-- Dashboard -->
+    <div class="admin-section active" id="section-dashboard">
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--dark);">📊 Dashboard</h2>
+
+      <div class="stats-grid" id="adminStatsGrid">
+        <div class="stat-card skeleton" style="height:90px;"></div>
+        <div class="stat-card skeleton" style="height:90px;"></div>
+        <div class="stat-card skeleton" style="height:90px;"></div>
+        <div class="stat-card skeleton" style="height:90px;"></div>
+        <div class="stat-card skeleton" style="height:90px;"></div>
+        <div class="stat-card skeleton" style="height:90px;"></div>
+      </div>
+
+      <div class="table-wrapper">
+        <div class="table-header">
+          <h3>📈 Download 7 Hari Terakhir</h3>
+        </div>
+        <div id="chartArea" style="padding:1.5rem;">
+          <canvas id="downloadChart" height="80"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <div class="admin-section" id="section-scripts">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+        <h2 style="font-size:1.5rem;font-weight:800;color:var(--dark);">📦 Semua Script</h2>
+        <div style="display:flex;gap:0.5rem;">
+          <select id="statusFilter" class="sort-select" onchange="loadAdminScripts()">
+            <option value="all">Semua Status</option>
+            <option value="active">Aktif</option>
+            <option value="pending">Pending</option>
+            <option value="rejected">Ditolak</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Script</th>
+              <th>Uploader</th>
+              <th>Kategori</th>
+              <th>Stats</th>
+              <th>Status</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="scriptsTable">
+            <tr><td colspan="7" style="text-align:center;padding:2rem;color:var(--gray);">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Users -->
+    <div class="admin-section" id="section-users">
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--dark);">👥 Kelola User</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Bergabung</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="usersTable">
+            <tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--gray);">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Pending Scripts -->
+    <div class="admin-section" id="section-pending">
+      <h2 style="font-size:1.5rem;font-weight:800;margin-bottom:1.5rem;color:var(--dark);">⏳ Script Menunggu Review</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Script</th>
+              <th>Uploader</th>
+              <th>Kategori</th>
+              <th>Tanggal</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="pendingTable">
+            <tr><td colspan="5" style="text-align:center;padding:2rem;color:var(--gray);">Memuat data...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js)"></script>
+<script src="/js/main.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>
