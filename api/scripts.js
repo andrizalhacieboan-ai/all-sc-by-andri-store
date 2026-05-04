@@ -128,7 +128,7 @@ router.get('/:id/download', async (req, res) => {
   if (token) {
     try {
       const jwt = require('jsonwebtoken');
-      const decoded = jwt.verify(token, process.env.JWT_SECRET || 'your-super-secret-key-change-this');
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
       userId = decoded.id;
     } catch {}
   }
